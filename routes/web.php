@@ -18,5 +18,7 @@ use App\Http\Controllers\HomeController;
 Route::controller(HomeController::class)->group(function(){
 
     Route::match(['get' , 'post'] , '/' , 'index')->name('index');
+    Route::match(['get' , 'post'] , 'user/save' , 'Usersave')->name('user-save');
+    Route::match(['get' , 'post'] , 'user/delete' , 'Userdelete')->name('user-delete');
 
 });
