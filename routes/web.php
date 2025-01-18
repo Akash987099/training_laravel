@@ -20,5 +20,14 @@ Route::controller(HomeController::class)->group(function(){
     Route::match(['get' , 'post'] , '/' , 'index')->name('index');
     Route::match(['get' , 'post'] , 'user/save' , 'Usersave')->name('user-save');
     Route::match(['get' , 'post'] , 'user/delete' , 'Userdelete')->name('user-delete');
+    Route::match(['get' , 'post'] , 'user/update' , 'Userupdate')->name('user-update');
+    Route::match(['get' , 'post'] , 'user/edit' , 'Useredit')->name('user-edit');
+    Route::match(['get' , 'post'] , 'user/list' , 'Userlist')->name('user.ajaxcall');
+
+});
+
+Route::controller(App\Http\Controllers\AjaxController::class)->group(function(){
+
+    Route::match(['get' , 'post'] , 'ajax' , 'Ajax')->name('Ajax');
 
 });

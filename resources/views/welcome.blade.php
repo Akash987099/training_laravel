@@ -308,7 +308,8 @@ $(document).ready(function(){
 						<td>{{$val->email}}</td>
 						<td>{{$val->password}}</td>
 						<td>
-							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a href="{{route('user-update' , ['id' => $val->id])}}"><i class="material-icons" title="Edit">&#xE254;</i></a>
+							{{-- <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a> --}}
 							<a href="{{route('user-delete' , ['id' => $val->id])}}"><i class="material-icons" title="Delete">&#xE872;</i></a>
 							{{-- <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a> --}}
 						</td>
@@ -364,6 +365,7 @@ $(document).ready(function(){
 					<h4 class="modal-title">Add Employee</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
+				
 				<div class="modal-body">					
 					<div class="form-group">
 						<label>Name</label>
