@@ -61,8 +61,13 @@ class HomeController extends Controller
         // dd($request->all());
 
         $id = $request->id;
+        $type = $request->type;
 
         $data = DB::table('users')->where('id' , $id)->first();
+
+        if($type == 1){
+            return response()->json(['status' => 'success' , 'data' => $data]);
+        }
 
         // dd($data);  
 
@@ -74,7 +79,7 @@ class HomeController extends Controller
 
         // dd($request->all());
 
-        $id = $request->id;
+        $updateid = $request->updateid;
 
         $data = [
 
@@ -85,11 +90,16 @@ class HomeController extends Controller
         ];
 
 
-        $update = DB::table('users')->where('id' , $id)->update($data);
+        $update = DB::table('users')->where('id' , $updateid)->update($data);
 
         if ($update) {
+            
+            return response()->json(['status' => 'success']);
+
             return redirect()->back()->with('success', 'User Update successfully!');
         } 
+
+        return response()->json(['status' => 'error']);
 
         return redirect()->back()->with('error', 'Failed to add user. Please try again.');
 
@@ -131,9 +141,10 @@ class HomeController extends Controller
 								<input type="checkbox" id="checkbox1" name="options[]" value="'.$id.'">
 								<label for="checkbox1"></label>
 							</span>';
-            $action  = '&nbsp;<a href="#editEmployeeModal" class="edit" data-toggle="modal" data-id="'.$id.'"><i class="material-icons" title="Edit">&#xE254;</i></a>';
+            $action  = '&nbsp;<a href="javascript:void(0);" class="edit" data-toggle="modal" data-id="'.$id.'"><i class="material-icons" title="Edit">&#xE254;</i></a>';
             $action .= '&nbsp;<a href="javascript:void(0);" class="delete" data-id="'.$id.'"><i class="material-icons" title="Delete">&#xE872;</i></a>';
 // deleteEmployeeModal
+// editEmployeeModal
             $data_arr[] = array(
               "id" => ++$start,
               'check' => $check,

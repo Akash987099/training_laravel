@@ -11,4 +11,6 @@ class AjaxController extends Controller
         return view('Ajax.add');
     }
 
+   
+
 }

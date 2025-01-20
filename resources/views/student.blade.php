@@ -461,7 +461,7 @@ $(document).ready(function(){
 
         $.ajax({
 
-            url : "{{route('user-save')}}",
+            url : "{{route('student-save')}}",
             type : "POST",
             data : formData,
             success : function(response){
